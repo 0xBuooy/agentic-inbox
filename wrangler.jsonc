@@ -18,7 +18,9 @@
 		"EMAIL_AGENT_MODEL": "@cf/moonshotai/kimi-k2.5",
 		"AUTO_DRAFT_MODEL": "@cf/moonshotai/kimi-k2.5",
 		"PROMPT_INJECTION_MODEL": "@cf/meta/llama-3.1-8b-instruct-fast",
-		"DRAFT_VERIFIER_MODEL": "@cf/meta/llama-4-scout-17b-16e-instruct"
+		"DRAFT_VERIFIER_MODEL": "@cf/meta/llama-4-scout-17b-16e-instruct",
+		// When true, the new-email automation sends verified replies instead of saving drafts.
+		"AUTOMATED_SENDING_ENABLED": false
 	},
 	"send_email": [
 		{

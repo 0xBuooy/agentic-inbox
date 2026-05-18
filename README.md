@@ -40,7 +40,7 @@ https://github.com/cloudflare/agentic-inbox/issues/4#issuecomment-4269118513
 - **Full email client** — Send and receive emails via Cloudflare Email Routing with a rich text composer, reply/forward threading, folder organization, search, and attachments
 - **Per-mailbox isolation** — Each mailbox runs in its own Durable Object with SQLite storage and R2 for attachments
 - **Built-in AI agent** — Side panel with 9 email tools for reading, searching, drafting, and sending
-- **Auto-draft on new email** — Agent automatically reads inbound emails and generates draft replies, always requiring explicit confirmation before sending
+- **Auto-draft on new email** — Agent automatically reads inbound emails and generates draft replies, requiring explicit confirmation before sending by default
 - **Configurable and persistent** — Custom system prompts per mailbox, persistent chat history, streaming markdown responses, and tool call visibility
 
 ## Stack
@@ -63,6 +63,8 @@ npm run dev
 2. Create an R2 bucket named `agentic-inbox`: `wrangler r2 bucket create agentic-inbox`
 
 For production-specific values, keep a local `wrangler.production.jsonc` file. This file is ignored by git so real domains, mailbox addresses, Access values, and other deployment-specific settings are not committed. Use `wrangler.jsonc` as the shared example, copy it locally to `wrangler.production.jsonc`, then set production-only values such as `DOMAINS`, `EMAIL_ADDRESSES`, `POLICY_AUD`, and `TEAM_DOMAIN`.
+
+By default, inbound email automation creates draft replies only. To allow the new-email automation to send verified replies automatically, set `AUTOMATED_SENDING_ENABLED` to `true` in your Wrangler config.
 
 ### Deploy
 
